@@ -27,11 +27,11 @@ func runCommandList(cmd *cobra.Command, args []string) {
 
 	if len(args) == 1 {
 		projectId := args[0]
-		GetRootCollections(projectId)
+		ListUpRootCollections(projectId)
 	} else if len(args) == 2 {
 		projectId := args[0]
 		collection := args[1]
-		GetDocs(projectId, collection)
+		ListUpDocs(projectId, collection)
 	} else {
 		log.Fatal("read requires 1-2 arguments: projectId, document")
 	}

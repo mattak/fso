@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func GetRootCollections(projectId string) {
+func ListUpRootCollections(projectId string) {
 	ctx := context.Background()
 	client, err := firestore.NewClient(ctx, projectId)
 	if err != nil {
