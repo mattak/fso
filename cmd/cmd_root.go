@@ -1,6 +1,8 @@
 package cmd
 
-import "github.com/spf13/cobra"
+import (
+	"github.com/spf13/cobra"
+)
 
 var (
 	RootCmd = &cobra.Command{
@@ -15,6 +17,7 @@ func Execute() error {
 }
 
 func init() {
+	RootCmd.AddCommand(VersionCmd)
 	RootCmd.AddCommand(ListCmd)
 	RootCmd.AddCommand(GetCmd)
 	RootCmd.AddCommand(SetCmd)
