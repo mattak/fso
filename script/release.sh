@@ -5,6 +5,12 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
+BRANCH=$(git branch | grep '*' | awk '{print $2}')
+if [ $BRANCH != "master" ]; then
+  echo "branch is not master"
+  exit 1
+fi
+
 version=$1
 
 cat <<__TEXT__ > cmd/version.go
@@ -17,4 +23,6 @@ __TEXT__
 git add cmd/version.go
 git commit -m ":up: bump up $version"
 git tag $version
+git push origin
+git push origin --tags
 
