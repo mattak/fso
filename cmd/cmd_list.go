@@ -8,10 +8,10 @@ import (
 
 var (
 	ListCmd = &cobra.Command{
-		Use:   "list",
+		Use:     "list",
 		Aliases: []string{"l", "ls"},
-		Short: "List data",
-		Long:  "List data",
+		Short:   "List data",
+		Long:    "List data",
 		Example: `  fso list projectId
   fso list projectId collection1
 `,

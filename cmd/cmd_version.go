@@ -7,10 +7,10 @@ import (
 
 var (
 	VersionCmd = &cobra.Command{
-		Use:   "version",
+		Use:     "version",
 		Aliases: []string{"v"},
-		Short: "Show version",
-		Long:  "Show version",
+		Short:   "Show version",
+		Long:    "Show version",
 		Example: `  fso version
 `,
 		Run: runCommandVersion,

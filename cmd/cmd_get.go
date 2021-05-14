@@ -8,10 +8,10 @@ import (
 
 var (
 	GetCmd = &cobra.Command{
-		Use:   "get [PROJECT_ID] [COLLECTION_ID] [DOC_ID]?",
+		Use:     "get [PROJECT_ID] [COLLECTION_ID] [DOC_ID]?",
 		Aliases: []string{"g"},
-		Short: "Get data",
-		Long:  "Get data",
+		Short:   "Get data",
+		Long:    "Get data",
 		Example: `  fso get projectId collection1
   fso get projectId collection1 document1
 `,

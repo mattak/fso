@@ -8,10 +8,10 @@ import (
 
 var (
 	DeleteCmd = &cobra.Command{
-		Use:   "delete [PROJECT_ID] [COLLECTION_ID] [DOC_ID]",
+		Use:     "delete [PROJECT_ID] [COLLECTION_ID] [DOC_ID]",
 		Aliases: []string{"d"},
-		Short: "Delete data",
-		Long:  "Delete data",
+		Short:   "Delete data",
+		Long:    "Delete data",
 		Example: `  fso delete projectId collection1 document1
 `,
 		Run: runCommandDelete,
