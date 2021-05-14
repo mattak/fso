@@ -8,7 +8,7 @@ import (
 
 var (
 	CreateCmd = &cobra.Command{
-		Use:     "create",
+		Use:     "create [PROJECT_ID] [COLLECTION_ID] [DOC_ID]",
 		Aliases: []string{"c"},
 		Short:   "create data",
 		Long:    "create data",

@@ -8,7 +8,7 @@ import (
 
 var (
 	DeleteCmd = &cobra.Command{
-		Use:   "delete",
+		Use:   "delete [PROJECT_ID] [COLLECTION_ID] [DOC_ID]",
 		Aliases: []string{"d"},
 		Short: "Delete data",
 		Long:  "Delete data",

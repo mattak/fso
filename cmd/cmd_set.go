@@ -8,7 +8,7 @@ import (
 
 var (
 	SetCmd = &cobra.Command{
-		Use:     "set",
+		Use:     "set [PROJECT_ID] [COLLECTION_ID] [DOC_ID]",
 		Aliases: []string{"s"},
 		Short:   "Set data",
 		Long:    "Set data",
