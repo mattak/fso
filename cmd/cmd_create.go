@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"fmt"
+	"github.com/mattak/fso/pkg/crud"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -12,7 +14,7 @@ var (
 		Aliases: []string{"c"},
 		Short:   "create data",
 		Long:    "create data",
-		Example: `  echo '{"symbols":["a"]}' | fso create projectId collection1 document1
+		Example: `  echo '{"symbols":["a"]}' | crud create projectId collection1 document1
 `,
 		Run: runCommandCreate,
 	}
@@ -32,5 +34,6 @@ func runCommandCreate(cmd *cobra.Command, args []string) {
 	collection := args[1]
 	doc := args[2]
 
-	CreateChildCollection(projectId, collection, doc)
+	result := crud.CreateChildCollection(projectId, collection, doc)
+	fmt.Println(result)
 }

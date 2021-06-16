@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"fmt"
+	"github.com/mattak/fso/pkg/crud"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -12,7 +14,7 @@ var (
 		Aliases: []string{"d"},
 		Short:   "Delete data",
 		Long:    "Delete data",
-		Example: `  fso delete projectId collection1 document1
+		Example: `  crud delete projectId collection1 document1
 `,
 		Run: runCommandDelete,
 	}
@@ -28,7 +30,8 @@ func runCommandDelete(cmd *cobra.Command, args []string) {
 		projectId := args[0]
 		collection := args[1]
 		doc := args[2]
-		DeleteChildCollection(projectId, collection, doc)
+		result := crud.DeleteChildCollection(projectId, collection, doc)
+		fmt.Println(result)
 	} else {
 		log.Fatal("read requires 3 arguments: projectId, document, collection")
 	}

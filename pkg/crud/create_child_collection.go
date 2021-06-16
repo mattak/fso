@@ -1,12 +1,13 @@
-package cmd
+package crud
 
 import (
 	"cloud.google.com/go/firestore"
 	"context"
-	"fmt"
 )
 
-func DeleteChildCollection(projectId, collection, doc string) {
+func CreateChildCollection(projectId, collection, doc string) *firestore.WriteResult {
+	data := readFromStdin()
+
 	ctx := context.Background()
 	client, err := firestore.NewClient(ctx, projectId)
 	if err != nil {
@@ -16,9 +17,9 @@ func DeleteChildCollection(projectId, collection, doc string) {
 	statues := client.Collection(collection)
 	collectionRef := statues.Doc(doc)
 
-	result, err := collectionRef.Delete(ctx)
+	result, err := collectionRef.Create(ctx, data)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(result)
+	return result
 }

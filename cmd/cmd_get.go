@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/mattak/fso/pkg/crud"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -12,8 +13,8 @@ var (
 		Aliases: []string{"g"},
 		Short:   "Get data",
 		Long:    "Get data",
-		Example: `  fso get projectId collection1
-  fso get projectId collection1 document1
+		Example: `  crud get projectId collection1
+  crud get projectId collection1 document1
 `,
 		Run: runCommandGet,
 	}
@@ -33,12 +34,17 @@ func runCommandGet(cmd *cobra.Command, args []string) {
 	if len(args) == 2 {
 		projectId := args[0]
 		collection := args[1]
-		GetDocs(projectId, collection)
+		crud.PrintJson(crud.GetDocs(projectId, collection))
 	} else if len(args) == 3 {
 		projectId := args[0]
 		collection := args[1]
 		doc := args[2]
-		GetChildCollections(projectId, collection, doc, isMeta)
+
+		if isMeta {
+			crud.PrintJson(crud.GetChildCollectionMeta(projectId, collection, doc))
+		} else {
+			crud.PrintJson(crud.GetChildCollections(projectId, collection, doc))
+		}
 	} else {
 		log.Fatal("read requires 3 arguments: projectId, document, collection")
 	}

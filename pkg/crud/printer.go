@@ -1,4 +1,4 @@
-package cmd
+package crud
 
 import (
 	"encoding/json"
@@ -12,4 +12,10 @@ func PrintJson(raw interface{}) {
 	}
 	data := string(bytes)
 	fmt.Println(data)
+}
+
+func PrintMapTsv(list map[string]string) {
+	for k, v := range list {
+		fmt.Printf("%s\t%s\n", k, v)
+	}
 }

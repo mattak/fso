@@ -1,12 +1,11 @@
-package cmd
+package crud
 
 import (
 	"cloud.google.com/go/firestore"
 	"context"
-	"fmt"
 )
 
-func ListUpRootCollections(projectId string) {
+func ListUpRootCollections(projectId string) map[string]string {
 	ctx := context.Background()
 	client, err := firestore.NewClient(ctx, projectId)
 	if err != nil {
@@ -18,7 +17,9 @@ func ListUpRootCollections(projectId string) {
 		panic(err)
 	}
 
+	result := map[string]string{}
 	for i := 0; i < len(all); i++ {
-		fmt.Printf("%s\t%s\n", all[i].ID, all[i].Path)
+		result[all[i].ID] = all[i].Path
 	}
+	return result
 }

@@ -11,7 +11,7 @@ var (
 		Aliases: []string{"v"},
 		Short:   "Show version",
 		Long:    "Show version",
-		Example: `  fso version
+		Example: `  crud version
 `,
 		Run: runCommandVersion,
 	}

@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/mattak/fso/pkg/crud"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -12,8 +13,8 @@ var (
 		Aliases: []string{"l", "ls"},
 		Short:   "List data",
 		Long:    "List data",
-		Example: `  fso list projectId
-  fso list projectId collection1
+		Example: `  crud list projectId
+  crud list projectId collection1
 `,
 		Run: runCommandList,
 	}
@@ -27,11 +28,13 @@ func runCommandList(cmd *cobra.Command, args []string) {
 
 	if len(args) == 1 {
 		projectId := args[0]
-		ListUpRootCollections(projectId)
+		result := crud.ListUpRootCollections(projectId)
+		crud.PrintMapTsv(result)
 	} else if len(args) == 2 {
 		projectId := args[0]
 		collection := args[1]
-		ListUpDocs(projectId, collection)
+		result := crud.ListUpDocs(projectId, collection)
+		crud.PrintMapTsv(result)
 	} else {
 		log.Fatal("read requires 1-2 arguments: projectId, document")
 	}

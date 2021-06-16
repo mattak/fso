@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"fmt"
+	"github.com/mattak/fso/pkg/crud"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -12,7 +14,7 @@ var (
 		Aliases: []string{"s"},
 		Short:   "Set data",
 		Long:    "Set data",
-		Example: `  echo '{"symbols":["a"]}' | fso set projectId collection1 document1
+		Example: `  echo '{"symbols":["a"]}' | crud set projectId collection1 document1
 `,
 		Run: runCommandSet,
 	}
@@ -32,5 +34,6 @@ func runCommandSet(cmd *cobra.Command, args []string) {
 	collection := args[1]
 	doc := args[2]
 
-	SetChildCollection(projectId, collection, doc)
+	result := crud.SetChildCollection(projectId, collection, doc)
+	fmt.Println(result)
 }

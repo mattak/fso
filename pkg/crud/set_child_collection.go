@@ -1,12 +1,13 @@
-package cmd
+package crud
 
 import (
 	"cloud.google.com/go/firestore"
 	"context"
-	"fmt"
 )
 
-func ListUpDocs(projectId string, collection string) {
+func SetChildCollection(projectId, collection, doc string) *firestore.WriteResult {
+	data := readFromStdin()
+
 	ctx := context.Background()
 	client, err := firestore.NewClient(ctx, projectId)
 	if err != nil {
@@ -14,11 +15,11 @@ func ListUpDocs(projectId string, collection string) {
 	}
 
 	statues := client.Collection(collection)
-	docs, err := statues.Documents(ctx).GetAll()
+	collectionRef := statues.Doc(doc)
+
+	result, err := collectionRef.Set(ctx, data, firestore.MergeAll)
 	if err != nil {
 		panic(err)
 	}
-	for i := 0; i < len(docs); i++ {
-		fmt.Printf("%s\t%s\n", docs[i].Ref.ID, docs[i].Ref.Path)
-	}
+	return result
 }

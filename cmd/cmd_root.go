@@ -6,7 +6,7 @@ import (
 
 var (
 	RootCmd = &cobra.Command{
-		Use:   "fso",
+		Use:   "crud",
 		Short: "firebase get/set operator",
 		Long:  "firebase get/set operator",
 	}
