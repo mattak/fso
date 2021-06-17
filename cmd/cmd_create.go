@@ -14,7 +14,7 @@ var (
 		Aliases: []string{"c"},
 		Short:   "create data",
 		Long:    "create data",
-		Example: `  echo '{"symbols":["a"]}' | crud create projectId collection1 document1
+		Example: `  echo '{"symbols":["a"]}' | fso create projectId collection1 document1
 `,
 		Run: runCommandCreate,
 	}

@@ -13,8 +13,8 @@ var (
 		Aliases: []string{"l", "ls"},
 		Short:   "List data",
 		Long:    "List data",
-		Example: `  crud list projectId
-  crud list projectId collection1
+		Example: `  fso list projectId
+  fso list projectId collection1
 `,
 		Run: runCommandList,
 	}

@@ -21,3 +21,14 @@ read
 $ fso get projectId collectionId documentId
 ```
 
+
+## Test
+
+```
+$ cp .env.sample .env
+# edit to fill .env
+
+$ ./script/test.sh
+```
+
+

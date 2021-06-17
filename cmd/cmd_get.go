@@ -13,7 +13,7 @@ var (
 		Aliases: []string{"g"},
 		Short:   "Get data",
 		Long:    "Get data",
-		Example: `  crud get projectId collection1
+		Example: `  fso get projectId collection1
   crud get projectId collection1 document1
 `,
 		Run: runCommandGet,

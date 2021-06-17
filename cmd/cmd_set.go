@@ -14,7 +14,7 @@ var (
 		Aliases: []string{"s"},
 		Short:   "Set data",
 		Long:    "Set data",
-		Example: `  echo '{"symbols":["a"]}' | crud set projectId collection1 document1
+		Example: `  echo '{"symbols":["a"]}' | fso set projectId collection1 document1
 `,
 		Run: runCommandSet,
 	}

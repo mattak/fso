@@ -14,7 +14,7 @@ var (
 		Aliases: []string{"d"},
 		Short:   "Delete data",
 		Long:    "Delete data",
-		Example: `  crud delete projectId collection1 document1
+		Example: `  fso delete projectId collection1 document1
 `,
 		Run: runCommandDelete,
 	}
