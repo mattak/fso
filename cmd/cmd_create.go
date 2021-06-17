@@ -34,6 +34,6 @@ func runCommandCreate(cmd *cobra.Command, args []string) {
 	collection := args[1]
 	doc := args[2]
 
-	result := crud.CreateChildCollection(projectId, collection, doc)
+	result := crud.CreateDoc(projectId, collection, doc)
 	fmt.Println(result)
 }

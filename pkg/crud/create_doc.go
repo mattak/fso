@@ -5,7 +5,7 @@ import (
 	"context"
 )
 
-func CreateChildCollection(projectId, collection, doc string) *firestore.WriteResult {
+func CreateDoc(projectId, collection, doc string) *firestore.WriteResult {
 	data := readFromStdin()
 
 	ctx := context.Background()

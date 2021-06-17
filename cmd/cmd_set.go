@@ -34,6 +34,6 @@ func runCommandSet(cmd *cobra.Command, args []string) {
 	collection := args[1]
 	doc := args[2]
 
-	result := crud.SetChildCollection(projectId, collection, doc)
+	result := crud.SetDoc(projectId, collection, doc)
 	fmt.Println(result)
 }

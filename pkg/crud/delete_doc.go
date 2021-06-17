@@ -5,21 +5,19 @@ import (
 	"context"
 )
 
-func ListUpRootCollections(projectId string) map[string]string {
+func DeleteDoc(projectId, collection, doc string) *firestore.WriteResult {
 	ctx := context.Background()
 	client, err := firestore.NewClient(ctx, projectId)
 	if err != nil {
 		panic(err)
 	}
 
-	all, err := client.Collections(ctx).GetAll()
+	statues := client.Collection(collection)
+	collectionRef := statues.Doc(doc)
+
+	result, err := collectionRef.Delete(ctx)
 	if err != nil {
 		panic(err)
-	}
-
-	result := map[string]string{}
-	for i := 0; i < len(all); i++ {
-		result[all[i].ID] = all[i].Path
 	}
 	return result
 }

@@ -41,9 +41,9 @@ func runCommandGet(cmd *cobra.Command, args []string) {
 		doc := args[2]
 
 		if isMeta {
-			crud.PrintJson(crud.GetChildCollectionMeta(projectId, collection, doc))
+			crud.PrintJson(crud.GetDocMeta(projectId, collection, doc))
 		} else {
-			crud.PrintJson(crud.GetChildCollections(projectId, collection, doc))
+			crud.PrintJson(crud.GetDoc(projectId, collection, doc))
 		}
 	} else {
 		log.Fatal("read requires 3 arguments: projectId, document, collection")

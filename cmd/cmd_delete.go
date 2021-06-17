@@ -30,7 +30,7 @@ func runCommandDelete(cmd *cobra.Command, args []string) {
 		projectId := args[0]
 		collection := args[1]
 		doc := args[2]
-		result := crud.DeleteChildCollection(projectId, collection, doc)
+		result := crud.DeleteDoc(projectId, collection, doc)
 		fmt.Println(result)
 	} else {
 		log.Fatal("read requires 3 arguments: projectId, document, collection")
